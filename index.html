@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Under Maintenance</title>
+  <title>Client Login</title>
+
   <style>
     * {
       margin: 0;
@@ -22,6 +23,8 @@
       overflow: hidden;
       position: relative;
     }
+
+    /* Animated Grid */
 
     .background-grid {
       position: absolute;
@@ -42,53 +45,7 @@
       }
     }
 
-    .container {
-      text-align: center;
-      z-index: 2;
-      padding: 40px;
-      max-width: 700px;
-    }
-
-    .status {
-      display: inline-block;
-      padding: 8px 18px;
-      border: 1px solid #111;
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 30px;
-      animation: pulse 2s infinite ease-in-out;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.45;
-      }
-    }
-
-    h1 {
-      font-size: clamp(42px, 8vw, 90px);
-      line-height: 1;
-      letter-spacing: -3px;
-      margin-bottom: 24px;
-    }
-
-    p {
-      font-size: 18px;
-      color: #444;
-      line-height: 1.7;
-    }
-
-    .signature {
-      margin-top: 40px;
-      font-size: 14px;
-      letter-spacing: 5px;
-      color: #666;
-    }
+    /* Floating Circles */
 
     .circle {
       position: absolute;
@@ -120,28 +77,159 @@
         transform: translateY(15px);
       }
     }
+
+    /* Main Container */
+
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 420px;
+      padding: 50px 40px;
+      text-align: center;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid #111;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.45;
+      }
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 0.95;
+      letter-spacing: -3px;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 40px;
+    }
+
+    /* Form */
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .input-group {
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 16px 18px;
+      border: 1px solid #dcdcdc;
+      background: rgba(255,255,255,0.75);
+      font-size: 15px;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #111;
+    }
+
+    .login-btn {
+      margin-top: 10px;
+      padding: 16px;
+      border: none;
+      background: #111;
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity 0.25s ease;
+    }
+
+    .login-btn:hover {
+      opacity: 0.85;
+    }
+
+    .footer {
+      margin-top: 36px;
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #777;
+    }
   </style>
 </head>
+
 <body>
+
   <div class="background-grid"></div>
 
   <div class="circle one"></div>
   <div class="circle two"></div>
 
   <div class="container">
-    <div class="status">Temporarily Offline</div>
+
+    <div class="status">Secure Access</div>
 
     <h1>
-      Site Under<br />
-      Maintenance
+      Client<br />
+      Portal
     </h1>
 
-    <p>
-      We're making a few upgrades behind the scenes.<br />
-      RK and VD will be back online shortly.
+    <p class="subtitle">
+      Enter your credentials to continue.<br />
+      Authorized customers only.
     </p>
 
-    <div class="signature">RK • VD</div>
+    <form class="login-form">
+
+      <div class="input-group">
+        <label>Customer ID</label>
+        <input type="text" placeholder="Enter Customer ID" />
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" placeholder="Enter Password" />
+      </div>
+
+      <button class="login-btn">
+        Log In
+      </button>
+
+    </form>
+
+    <div class="footer">
+      RK • VD
+    </div>
+
   </div>
+
 </body>
 </html>
